@@ -1,9 +1,15 @@
-﻿using System.Data.Entity;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using TeduShop.Model.Models;
 
 namespace TeduShop.Data
 {
-    public class TeduShopDbContext : DbContext
+    public class TeduShopDbContext : IdentityDbContext<ApplicationUser>
     {
         public TeduShopDbContext() : base("TeduShopConnection")
         {
@@ -30,10 +36,17 @@ namespace TeduShop.Data
         public DbSet<Tag> Tags { set; get; }
 
         public DbSet<VisitorStatistic> VisitorStatistics { set; get; }
-
         public DbSet<Error> Errors { set; get; }
+
+        public static TeduShopDbContext Create()
+        {
+            return new TeduShopDbContext();
+        }
+
         protected override void OnModelCreating(DbModelBuilder builder)
         {
+            builder.Entity<IdentityUserRole>().HasKey(i => new { i.UserId, i.RoleId });
+            builder.Entity<IdentityUserLogin>().HasKey(i => i.UserId);
         }
     }
 }
