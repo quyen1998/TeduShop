@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TeduShop.Data.Infrastructure;
 using TeduShop.Data.Repositories;
 using TeduShop.Model.Models;
@@ -18,6 +15,8 @@ namespace TeduShop.Service
         ProductCategory Delete(int id);
 
         IEnumerable<ProductCategory> GetAll();
+
+        IEnumerable<ProductCategory> GetAll(string keyword);
 
         IEnumerable<ProductCategory> GetAllByParentId(int parentId);
 
@@ -52,6 +51,15 @@ namespace TeduShop.Service
             return _ProductCategoryRepository.GetAll();
         }
 
+        public IEnumerable<ProductCategory> GetAll(string keyword)
+        {
+            if (!string.IsNullOrEmpty(keyword))
+                return _ProductCategoryRepository.GetMulti(x => x.Name.Contains(keyword) || x.Description.Contains(keyword));
+            else
+                return _ProductCategoryRepository.GetAll();
+
+        }
+
         public IEnumerable<ProductCategory> GetAllByParentId(int parentId)
         {
             return _ProductCategoryRepository.GetMulti(x => x.Status && x.ParentID == parentId);
@@ -72,5 +80,4 @@ namespace TeduShop.Service
             _ProductCategoryRepository.Update(ProductCategory);
         }
     }
-
 }
