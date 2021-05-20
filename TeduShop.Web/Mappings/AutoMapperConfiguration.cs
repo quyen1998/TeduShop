@@ -19,6 +19,8 @@ namespace TeduShop.Web.Mappings
             Mapper.CreateMap<Slide, SlideViewModel>();
             Mapper.CreateMap<Page, PageViewModel>();
             Mapper.CreateMap<ContactDetail, ContactDetailViewModel>();
+           
+            
         }
 
     }

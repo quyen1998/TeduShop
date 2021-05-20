@@ -1,6 +1,11 @@
-﻿.tag{
-    display:block;
+﻿.tag {
+    display: block;
 }
-.taglist li{
-	float:left;
+
+.taglist li {
+    float: left;
+}
+
+.error {
+    color: red;
 }
