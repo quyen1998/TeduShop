@@ -154,7 +154,7 @@
             {
                 try
                 {
-                    var contactDetail2 = new TeduShop.Model.Models.ContactDetail()
+                    var contactDetail = new TeduShop.Model.Models.ContactDetail()
                     {
                         Name = "360 Boutique",
                         Address = "116 Hồ Tùng Mậu,Quận Cầu Giấy, Hà Nội",
@@ -167,7 +167,7 @@
                         Status = true
 
                     };
-                    context.ContactDetails.Add(contactDetail2);
+                    context.ContactDetails.Add(contactDetail);
                     context.SaveChanges();
                 }
                 catch (DbEntityValidationException ex)

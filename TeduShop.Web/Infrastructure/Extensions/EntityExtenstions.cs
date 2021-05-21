@@ -29,7 +29,26 @@ namespace TeduShop.Web.Infrastructure.Extensions
             postCategory.Status = postCategoryVm.Status;
 
         }
-       
+        public static void UpdateProductCategory(this ProductCategory productCategory, ProductCategoryViewModel productCategoryVm)
+        {
+            productCategory.ID = productCategoryVm.ID;
+            productCategory.Name = productCategoryVm.Name;
+            productCategory.Description = productCategoryVm.Description;
+            productCategory.Alias = productCategoryVm.Alias;
+            productCategory.ParentID = productCategoryVm.ParentID;
+            productCategory.DisplayOrder = productCategoryVm.DisplayOrder;
+            productCategory.Image = productCategoryVm.Image;
+            productCategory.HomeFlag = productCategoryVm.HomeFlag;
+
+            productCategory.CreatedDate = productCategoryVm.CreatedDate;
+            productCategory.CreatedBy = productCategoryVm.CreatedBy;
+            productCategory.UpdatedDate = productCategoryVm.UpdatedDate;
+            productCategory.UpdatedBy = productCategoryVm.UpdatedBy;
+            productCategory.MetaKeyword = productCategoryVm.MetaKeyword;
+            productCategory.MetaDescription = productCategoryVm.MetaDescription;
+            productCategory.Status = productCategoryVm.Status;
+
+        }
         public static void UpdatePost(this Post post, PostViewModel postVm)
         {
             post.ID = postVm.ID;
@@ -51,28 +70,6 @@ namespace TeduShop.Web.Infrastructure.Extensions
             post.Status = postVm.Status;
         }
 
-
-        public static void UpdateProductCategory(this ProductCategory productCategory, ProductCategoryViewModel productCategoryVm)
-        {
-            productCategory.ID = productCategoryVm.ID;
-            productCategory.Name = productCategoryVm.Name;
-            productCategory.Description = productCategoryVm.Description;
-            productCategory.Alias = productCategoryVm.Alias;
-            productCategory.ParentID = productCategoryVm.ParentID;
-            productCategory.DisplayOrder = productCategoryVm.DisplayOrder;
-            productCategory.Image = productCategoryVm.Image;
-            productCategory.HomeFlag = productCategoryVm.HomeFlag;
-
-            productCategory.CreatedDate = productCategoryVm.CreatedDate;
-            productCategory.CreatedBy = productCategoryVm.CreatedBy;
-            productCategory.UpdatedDate = productCategoryVm.UpdatedDate;
-            productCategory.UpdatedBy = productCategoryVm.UpdatedBy;
-            productCategory.MetaKeyword = productCategoryVm.MetaKeyword;
-            productCategory.MetaDescription = productCategoryVm.MetaDescription;
-            productCategory.Status = productCategoryVm.Status;
-
-        }
-
         public static void UpdateProduct(this Product product, ProductViewModel productVm)
         {
             product.ID = productVm.ID;
@@ -87,9 +84,8 @@ namespace TeduShop.Web.Infrastructure.Extensions
             product.PromotionPrice = productVm.PromotionPrice;
             product.Warranty = productVm.Warranty;
             product.HomeFlag = productVm.HomeFlag;
-            product.ViewCount = productVm.ViewCount;
             product.HotFlag = productVm.HotFlag;
-            product.Quantity = productVm.Quantity;
+            product.ViewCount = productVm.ViewCount;
 
             product.CreatedDate = productVm.CreatedDate;
             product.CreatedBy = productVm.CreatedBy;
@@ -97,9 +93,11 @@ namespace TeduShop.Web.Infrastructure.Extensions
             product.UpdatedBy = productVm.UpdatedBy;
             product.MetaKeyword = productVm.MetaKeyword;
             product.MetaDescription = productVm.MetaDescription;
-            product.Tags = productVm.Tags;
             product.Status = productVm.Status;
+            product.Tags = productVm.Tags;
+            product.Quantity = productVm.Quantity;
         }
+
         public static void UpdateFeedback(this Feedback feedback, FeedbackViewModel feedbackVm)
         {
             feedback.Name = feedbackVm.Name;
@@ -107,6 +105,20 @@ namespace TeduShop.Web.Infrastructure.Extensions
             feedback.Message = feedbackVm.Message;
             feedback.Status = feedbackVm.Status;
             feedback.CreatedDate = DateTime.Now;
+        }
+
+        public static void UpdateOrder(this Order order, OrderViewModel orderVm)
+        {
+            order.CustomerName = orderVm.CustomerName;
+            order.CustomerAddress = orderVm.CustomerAddress;
+            order.CustomerEmail = orderVm.CustomerEmail;
+            order.CustomerMobile = orderVm.CustomerMobile;
+            order.CustomerMessage = orderVm.CustomerMessage;
+            order.PaymentMethod = orderVm.PaymentMethod;
+            order.CreatedDate = DateTime.Now;
+            order.CreatedBy = orderVm.CreatedBy;
+            order.Status = orderVm.Status;
+            order.CustomerId = orderVm.CustomerId;
         }
     }
 }
