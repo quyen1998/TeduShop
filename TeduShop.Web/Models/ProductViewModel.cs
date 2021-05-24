@@ -5,7 +5,7 @@ using System.Web;
 
 namespace TeduShop.Web.Models
 {
-    [Serializable]
+    //[Serializable]
     public class ProductViewModel
     {
         public int ID { set; get; }

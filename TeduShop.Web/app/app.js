@@ -4,7 +4,10 @@
 (function () {
     angular.module('tedushop',
         ['tedushop.products',
+            'tedushop.application_groups',
             'tedushop.product_categories',
+            'tedushop.application_roles',
+            'tedushop.application_users',
             'tedushop.common'])
         .config(config)
         .config(configAuthentication);
@@ -28,7 +31,7 @@
                 templateUrl: "/app/components/home/homeView.html",
                 controller: "homeController"
             });
-        $urlRouterProvider.otherwise('/login');
+        //$urlRouterProvider.otherwise('/login');
     }
 
     function configAuthentication($httpProvider) {
